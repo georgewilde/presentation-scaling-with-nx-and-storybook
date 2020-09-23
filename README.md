@@ -18,4 +18,4 @@ yarn && yarn dev
 
 ### Deploying
 
-This presentation is deployed on [Netlify](https://www.netlify.com/), so just push changes to github & it will automatically deploy [here](TBC).
+This presentation is deployed on [Netlify](https://www.netlify.com/), so just push changes to github & it will automatically deploy [here](https://presentation-scaling-with-nx-and-storybook.netlify.app/).
