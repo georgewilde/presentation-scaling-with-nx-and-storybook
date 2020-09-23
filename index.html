@@ -1,21 +1,71 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <link rel="stylesheet" href="reveal.js/css/reveal.css">
-    <link rel="stylesheet" href="reveal.js/css/theme/white.css">
-  </head>
+    <meta charset="utf-8" />
+    <title>Clever code scaling with Nx and Storybook</title>
+    <meta name="description" content="Presentation on how Purplebricks scales the frontend code using Nx and Storybook." />
+    <meta name="author" content="George Wilde" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="reveal.js/dist/reset.css" />
+    <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="reveal.js/dist/theme/serif.css" id="theme" />
 
+    <!-- Theme used for syntax highlighting of code -->
+    <link
+      rel="stylesheet"
+      href="reveal.js/plugin/highlight/monokai.css"
+      id="highlight-theme"
+    />
+  </head>
   <body>
     <div class="reveal">
       <div class="slides">
-        <section>Slide 1</section>
-        <section>Slide 2</section>
+        <section>
+          <a href="https://www.purplebricks.co.uk/">
+            <img
+              src="https://pbonlineassets.azureedge.net/web-images/marketing-global/logos/pb-logo-dark.svg"
+              alt="Profile Picture"
+              style="height: 180px; margin: 0 auto 4rem auto; background: transparent;"
+              class="demo-logo"
+            />
+          </a>
+          <h3>Clever code scaling with Nx and Storybook</h3>
+          <p>
+            <small>Created by
+              <a href="https://www.linkedin.com/in/george-wilde/">
+                George Wilde
+              </a>
+            </small>
+          </p>
+        </section>
       </div>
     </div>
-    <script src="reveal.js/js/reveal.js"></script>
+
+    <script src="reveal.js/dist/reveal.js"></script>
+    <script src="reveal.js/plugin/zoom/zoom.js"></script>
+    <script src="reveal.js/plugin/notes/notes.js"></script>
+    <script src="reveal.js/plugin/search/search.js"></script>
+    <script src="reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="reveal.js/plugin/highlight/highlight.js"></script>
     <script>
-      Reveal.initialize();
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        center: true,
+        hash: true,
+
+        plugins: [
+          RevealZoom,
+          RevealNotes,
+          RevealSearch,
+          RevealMarkdown,
+          RevealHighlight,
+        ],
+      });
+
+      Reveal.configure({ pdfSeparateFragments: false });
     </script>
   </body>
-
 </html>
