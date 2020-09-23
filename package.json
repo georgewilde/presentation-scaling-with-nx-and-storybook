@@ -1,0 +1,17 @@
+{
+  "name": "scaling-with-nx-and-storybook",
+  "version": "1.0.0",
+  "description": "Presentation on how Purplebricks scales the frontend code using Nx and Storybook.",
+  "homepage": "TBC",
+  "main": "index.html",
+  "repository": "git@github.com:georgewilde/presentation-scaling-with-nx-and-storybook.git",
+  "author": "George Wilde <george.wilde@purplebricks.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "dev": "live-server"
+  },
+  "devDependencies": {
+    "live-server": "1.2.1"
+  }
+}
