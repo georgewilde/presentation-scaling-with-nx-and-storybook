@@ -16,7 +16,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="reveal.js/dist/reset.css" />
         <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
-        <link rel="stylesheet" href="theme/light.css" id="theme" />
+        <link rel="stylesheet" href="styles/bootstrap/bootstrap.min.css" />
+        <link rel="stylesheet" href="styles/theme/light.css" id="theme" />
+        <link rel="stylesheet" href="styles/layout.css" />
 
         <!-- Theme used for syntax highlighting of code -->
         <link
@@ -41,15 +43,266 @@
                             class="demo-logo"
                         />
                     </a>
-                    <h3>Clever code scaling with Nx and Storybook</h3>
+                    <h3>Clever code scaling with<br />Nx and Storybook</h3>
+                </section>
+                <section>
+                    <h2>About me</h2>
+                    <img
+                        src="images/profile.jpg"
+                        alt="Picture of me"
+                        class="profile-photo"
+                    />
                     <p>
-                        <small
-                            >Created by
-                            <a href="https://www.linkedin.com/in/george-wilde/">
-                                George Wilde
-                            </a>
-                        </small>
+                        <a href="https://www.linkedin.com/in/george-wilde/">
+                            George Wilde
+                        </a>
                     </p>
+                    <p>Senior front-end engineer at Purplebricks</p>
+                </section>
+                <section>
+                    <h2>We have a problem</h2>
+                    <img
+                        src="images/initial-frontend-architecture.png"
+                        alt="Initial front-end architecture"
+                    />
+                    <aside class="notes">
+                        <p>We've got a code problem.</p>
+                        <ul>
+                            <li>
+                                Successful company built up over 6 years. In
+                                that time, different engineers have come and
+                                gone and contributed to our codebase.
+                            </li>
+                            <li>
+                                We've added new features and products and piled
+                                code on top of code without much consideration
+                                of governance and the future maintainability.
+                            </li>
+                            <li>
+                                We were a startup. We needed to get a product
+                                out the door and prove we had a product that
+                                people wanted.
+                            </li>
+                            <li>
+                                So now we’re a scale-up and we’re struggling. We
+                                can continue to deliver at speed, but only if we
+                                cut corners but the user and developer
+                                experience is going to get worse each time we
+                                do.
+                            </li>
+                            <li>
+                                We've accumulated a pile of technical debt, and
+                                we know it's time to pay that debt down.
+                            </li>
+                        </ul>
+                    </aside>
+                </section>
+                <section>
+                    <h2>The main issues</h2>
+                    <ul>
+                        <li>Code duplication</li>
+                        <li>
+                            Different versions of things used by other things
+                        </li>
+                        <li>Code in multiple repositories</li>
+                        <li>Different technologies</li>
+                    </ul>
+                    <aside class="notes">
+                        <p>All the engineers know where the pain points are:</p>
+                    </aside>
+                </section>
+                <section>
+                    <h2>What are we doing about it?</h2>
+                    <img
+                        src="images/nx-logo.png"
+                        alt="Nx logo"
+                        class="fragment"
+                        style="height: 300px"
+                    />
+                    <aside class="notes">
+                        <p>
+                            We suspected that if we could pull the code for all
+                            our products into one place and have it managed in
+                            one way we could alleviate a lot of these issues.
+                        </p>
+                        <p>
+                            We reviewed some tools that are designed to help
+                            with this kind of thing and decided to experiment
+                            with Nx.
+                        </p>
+                    </aside>
+                </section>
+                <section>
+                    <h2>What is Nx?</h2>
+                    <q
+                        >Nx is a set of extensible dev tools for mono-repos,
+                        which helps you develop like Google, Facebook, and
+                        Microsoft.</q
+                    >
+                    <ul class="list-unstyled mt-4">
+                        <li class="fragment">
+                            <img
+                                src="images/checked.svg"
+                                alt="Tick"
+                                style="height: 30px; margin: 0 25px"
+                            />Open-source
+                        </li>
+                        <li class="fragment">
+                            <img
+                                src="images/checked.svg"
+                                alt="Tick"
+                                style="height: 30px; margin: 0 25px"
+                            />Free
+                        </li>
+                        <li class="fragment">
+                            <img
+                                src="images/checked.svg"
+                                alt="Tick"
+                                style="height: 30px; margin: 0 25px"
+                            />Ex-Angular developers and Google tech leads
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>What does Nx give us?</h2>
+                    <ul class="list-unstyled mt-4">
+                        <li class="fragment">
+                            <img
+                                src="images/checked.svg"
+                                alt="Tick"
+                                style="height: 30px; margin: 0 25px"
+                            />Mono-repo
+                        </li>
+                        <li class="fragment">
+                            <img
+                                src="images/checked.svg"
+                                alt="Tick"
+                                style="height: 30px; margin: 0 25px"
+                            />Libraries and applications
+                        </li>
+                        <li class="fragment">
+                            <img
+                                src="images/checked.svg"
+                                alt="Tick"
+                                style="height: 30px; margin: 0 25px"
+                            />CLI
+                        </li>
+                        <li class="fragment">
+                            <img
+                                src="images/checked.svg"
+                                alt="Tick"
+                                style="height: 30px; margin: 0 25px"
+                            />No versioning
+                        </li>
+                    </ul>
+                    <aside class="notes">
+                        <p>
+                            It gives us a single repository in which we can
+                            store our applications.
+                        </p>
+                        <p>
+                            It has a concept of libraries where we can pull out
+                            all our shared code.
+                        </p>
+                        <p>
+                            It also gives us a nice CLI that wraps around
+                            everything and provides a consistent toolkit of
+                            commands we can use to build, test and lint whatever
+                            we want.
+                        </p>
+                        <p>
+                            We spent a year using Yarn workspaces with Lerna and
+                            with those tools, when you make a change, you
+                            publish a new version that can then be consumed.
+                            This leads to fragmentation as older applications
+                            are not updated to use the latest versions and
+                            you’re left supporting multiple versions of a
+                            package. With Nx’s approach, when you change a
+                            shared library you are forced to ensure it works
+                            everywhere right there and then, you cannot leave
+                            something on an older version and deal with it
+                            later.
+                        </p>
+                    </aside>
+                </section>
+                <section>
+                    <img
+                        src="images/nx-plus-storybook.png"
+                        alt="Nx plus Storybook = awesomeness"
+                        style="height: 200px"
+                    />
+                    <aside class="notes">
+                        <p>
+                            Once we could see how our applications would sit
+                            next to each other and how we could utilise
+                            libraries, we realised there would be a lot of power
+                            in moving all our React components that could be
+                            used in more than one application into a library and
+                            use Nx’s support for Storybook to create a design
+                            guide we could to use to build, test and make
+                            visible the UI building blocks available.
+                        </p>
+                    </aside>
+                </section>
+                <section>
+                    <h2>What does all this look like?</h2>
+                    <img
+                        src="images/nx-architecture.png"
+                        alt="Nx architecture"
+                        class="fragment"
+                        style="height: 500px"
+                    />
+                </section>
+                <section>
+                    <h2>What is the workflow like?</h2>
+                </section>
+                <section>
+                    <h2>What are the benefits?</h2>
+                    <ul>
+                        <li class="fragment">
+                            Cleaner codebase with reduced duplication
+                        </li>
+                        <li class="fragment">
+                            UI consistency across our products
+                        </li>
+                        <li class="fragment">Code consistency</li>
+                        <li class="fragment">Tooling is faster</li>
+                        <li class="fragment">Deployment pipeline is simpler</li>
+                    </ul>
+                    <aside class="notes">
+                        <p>It’s still early days.</p>
+                        <p>
+                            we’ve built 3 new applications and are moving 1
+                            existing application.
+                        </p>
+                        <p>
+                            Although the majority of our code is still outside
+                            of Nx we’re already seeing how this structure leads
+                            to some significant improvements for us.
+                        </p>
+                        <ul>
+                            <li>
+                                Moved all duplication into libraries - no
+                                versioning
+                            </li>
+                            <li>Storybook helps with this</li>
+                            <li>
+                                With one set of linting rules for everything
+                            </li>
+                            <li>
+                                Nx using caching to help tests, linting and
+                                building run quickly
+                            </li>
+                            <li>CLI helps with deployment</li>
+                        </ul>
+                    </aside>
+                </section>
+                <section>
+                    <h2>Thank you</h2>
+                    <img
+                        src="https://media.giphy.com/media/XHVmD4RyXgSjd8aUMb/giphy.gif"
+                        alt="Questions?"
+                    />
                 </section>
             </div>
         </div>
